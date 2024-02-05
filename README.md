@@ -4,8 +4,8 @@
 
 ### Student Info
 
--   Name: YOUR NAME
--   Section: ##
+-   Name: Rylie Love
+-   Section: 02
 
 ## Game Design
 
