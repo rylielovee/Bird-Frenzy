@@ -1,4 +1,4 @@
-# Project PROJECT_NAME
+# Project Rogue
 
 [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Here-Cheatsheet)
 
@@ -9,11 +9,11 @@
 
 ## Game Design
 
--   Camera Orientation: side view                                            _How are the art assets viewed from? (ie. topdown or side)_
--   Camera Movement: moves with the player                                   _How does the camera move in your game? (if at all)_
--   Player Health: lives                                                     _How are you handling player health? (healthbar, lives, ?)_
--   End Condition: getting to the end of the level (maybe a door?)           _How does a game/round/level end?_
--   Scoring: collecting lost souls along the way (like coins)                _How does the player earn points in your game?_
+-   Camera Orientation: side view
+-   Camera Movement: moves with the player
+-   Player Health: lives
+-   End Condition: getting to the end of the level (maybe a door?)
+-   Scoring: collecting lost souls along the way (like coins)
 
 ### Game Description
 
@@ -30,7 +30,7 @@ In this dark, but cutesy platform shooter game, you are a rogue demon who believ
 
 ## You Additions
 
-I did all the art for this project.                _List out what you added to your game to make it different for you_
+I will do all the art for this project.
 
 ## Sources
 
