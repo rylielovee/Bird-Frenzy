@@ -5,32 +5,32 @@
 ### Student Info
 
 -   Name: Rylie Love
--   Section: 02
+-   Section: 01
 
 ## Game Design
 
--   Camera Orientation: _How are the art assets viewed from? (ie. topdown or side)_
--   Camera Movement: _How does the camera move in your game? (if at all)_
--   Player Health: _How are you handling player health? (healthbar, lives, ?)_
--   End Condition: _How does a game/round/level end?_
--   Scoring: _How does the player earn points in your game?_
+-   Camera Orientation: side view                                            _How are the art assets viewed from? (ie. topdown or side)_
+-   Camera Movement: moves with the player                                   _How does the camera move in your game? (if at all)_
+-   Player Health: lives                                                     _How are you handling player health? (healthbar, lives, ?)_
+-   End Condition: getting to the end of the level (maybe a door?)           _How does a game/round/level end?_
+-   Scoring: collecting lost souls along the way (like coins)                _How does the player earn points in your game?_
 
 ### Game Description
 
-_A brief explanation of your game. Inculde what is the objective for the player. Think about what would go on the back of a game box._
+In this dark, but cutesy platform shooter game, you are a rogue demon who believes that not all people are purely evil. You must escape Hell while fighting off Satan’s demon soldiers to not be tortured for eternity while also saving as many lost souls as you can along the way. 
 
 ### Controls
 
 -   Movement
-    -   Up: 
-    -   Down: 
-    -   Left: 
-    -   Right: 
--   Fire: 
+    -   Up: W
+    -   Down: nothing
+    -   Left: A
+    -   Right: D
+-   Fire: space bar
 
 ## You Additions
 
-_List out what you added to your game to make it different for you_
+I did all the art for this project.                _List out what you added to your game to make it different for you_
 
 ## Sources
 
