@@ -10,20 +10,20 @@
 ## Game Design
 
 -   Camera Orientation: side view
--   Camera Movement: moves with the player
+-   Camera Movement: stationary
 -   Player Health: lives
--   End Condition: getting to the end of the level (maybe a door?)
--   Scoring: collecting lost souls along the way (like coins)
+-   End Condition: loss are your lives or kill all the enemies to get to next level
+-   Scoring: every kill you get 100 points
 
 ### Game Description
 
-In this dark, but cutesy platform shooter game, you are a rogue demon who believes that not all people are purely evil. You must escape Hell while fighting off Satan’s demon soldiers to not be tortured for eternity while also saving as many lost souls as you can along the way. 
+You are a cute little bird who has severely made all the other birds angry by stealing some of their food (bird seeds). Defend yourself from the wave of bird attacks!
 
 ### Controls
 
 -   Movement
     -   Up: W
-    -   Down: nothing
+    -   Down: S
     -   Left: A
     -   Right: D
 -   Fire: space bar
