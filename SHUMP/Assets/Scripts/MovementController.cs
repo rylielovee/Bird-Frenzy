@@ -55,25 +55,25 @@ public class MovementController : MonoBehaviour
 
         if ((objectPosition.x+1 > 4))  // this one to stop before the edge
         {
-            objectPosition.x = objectPosition.x - 0.05f;
+            objectPosition.x = objectPosition.x - 0.1f;
             transform.position = objectPosition;
         }
 
         if ((objectPosition.x-1 < -objPix.x))
         {
-            objectPosition.x = objectPosition.x + 0.05f;
+            objectPosition.x = objectPosition.x + 0.1f;
             transform.position = objectPosition;
         }
 
         if ((objectPosition.y+0.8f > objPix.y))
         {
-            objectPosition.y = objectPosition.y - 0.05f;
+            objectPosition.y = objectPosition.y - 0.1f;
             transform.position = objectPosition;
         }
 
         if ((objectPosition.y-0.8f < -objPix.y))
         {
-            objectPosition.y = objectPosition.y + 0.05f;
+            objectPosition.y = objectPosition.y + 0.1f;
             transform.position = objectPosition;
         }
 
