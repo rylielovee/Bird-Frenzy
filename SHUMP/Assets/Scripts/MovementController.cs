@@ -6,14 +6,15 @@ using UnityEngine.Serialization;
 
 public class MovementController : MonoBehaviour
 {
-    Vector3 objectPosition = Vector3.zero;
+    Vector3 objectPosition = Vector3.zero;   // Vector3 with all zeros (0, 0, 0)
 
     Vector3 direction = Vector3.zero;
 
-    Vector3 velocity = Vector3.zero;     
-
+    Vector3 velocity = Vector3.zero;     // velocity doesn't make sense outside of update but to debug
+                                         // put it here to see in inspector
     [SerializeField]
-    float speed;
+    float speed;   // whatever speed we put in inspector will override this
+
 
 
     public Vector3 Direction
@@ -29,7 +30,7 @@ public class MovementController : MonoBehaviour
 
 
     void Update()
-    {   
+    {
         velocity = direction * speed * Time.deltaTime;   // velocity is direction * speed * deltaTime
 
         objectPosition += velocity;   // add velocity to position
@@ -39,14 +40,42 @@ public class MovementController : MonoBehaviour
 
         transform.position = objectPosition;   // "draw" this object(the vehicle) at that position
 
-        if (direction.x < 0) 
+
+        StopAtEdges();
+    }
+
+
+    void StopAtEdges()
+    {
+        Vector3 sq = Vector3.zero;
+        sq.x = Screen.width;    // this is in pixels
+        sq.y = Screen.height;   // this is in pixels
+
+        Vector3 objPix = Camera.main.ScreenToWorldPoint(sq);  // changes pixels into coords
+
+        if ((objectPosition.x+1 > 4))  // this one to stop before the edge
         {
-            GetComponent<SpriteRenderer>().flipX = true;
+            objectPosition.x = objectPosition.x - 0.05f;
+            transform.position = objectPosition;
         }
-        else if (direction.x > 0)
+
+        if ((objectPosition.x-1 < -objPix.x))
         {
-            GetComponent<SpriteRenderer>().flipX = false;
+            objectPosition.x = objectPosition.x + 0.05f;
+            transform.position = objectPosition;
         }
-                
+
+        if ((objectPosition.y+0.8f > objPix.y))
+        {
+            objectPosition.y = objectPosition.y - 0.05f;
+            transform.position = objectPosition;
+        }
+
+        if ((objectPosition.y-0.8f < -objPix.y))
+        {
+            objectPosition.y = objectPosition.y + 0.05f;
+            transform.position = objectPosition;
+        }
+
     }
 }
