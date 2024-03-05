@@ -4,14 +4,18 @@ using UnityEngine;
 using UnityEngine.InputSystem.Controls;
 using UnityEngine.Serialization;
 
-public class MovementController : MonoBehaviour
+public class EnemyMovement : MonoBehaviour
 {
+
+    [SerializeField]
     Vector3 objectPosition = Vector3.zero;   // Vector3 with all zeros (0, 0, 0)
 
-    Vector3 direction = Vector3.zero;
+    [SerializeField]
+    Vector3 direction;
 
-    Vector3 velocity = Vector3.zero;     // velocity doesn't make sense outside of update but to debug
-                                         // put it here to see in inspector
+    [SerializeField]
+    Vector3 velocity;
+
     [SerializeField]
     float speed;   // whatever speed we put in inspector will override this
 
@@ -35,16 +39,14 @@ public class MovementController : MonoBehaviour
 
         objectPosition += velocity;   // add velocity to position
 
-        // validate new calculated position
-        // (not in code yet)
-
         transform.position = objectPosition;   // "draw" this object(the vehicle) at that position
 
-        StopAtEdges();
+        DeleteEnemy();
     }
 
 
-    void StopAtEdges()
+
+    void DeleteEnemy()
     {
         Vector3 sq = Vector3.zero;
         sq.x = Screen.width;    // this is in pixels
@@ -52,29 +54,9 @@ public class MovementController : MonoBehaviour
 
         Vector3 objPix = Camera.main.ScreenToWorldPoint(sq);  // changes pixels into coords
 
-        if ((objectPosition.x+1 > 7))  // this one to stop before the edge
+        if ((objectPosition.x < -objPix.x))
         {
-            objectPosition.x = objectPosition.x - 0.1f;
-            transform.position = objectPosition;
+            Destroy(gameObject);
         }
-
-        if ((objectPosition.x-1 < -objPix.x))
-        {
-            objectPosition.x = objectPosition.x + 0.1f;
-            transform.position = objectPosition;
-        }
-
-        if ((objectPosition.y+0.8f > objPix.y))
-        {
-            objectPosition.y = objectPosition.y - 0.1f;
-            transform.position = objectPosition;
-        }
-
-        if ((objectPosition.y-0.8f < -objPix.y))
-        {
-            objectPosition.y = objectPosition.y + 0.1f;
-            transform.position = objectPosition;
-        }
-
     }
 }

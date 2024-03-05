@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 303060685}
   - component: {fileID: 303060684}
+  - component: {fileID: 303060686}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -209,6 +210,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &303060686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 303060683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8f7e0e9142d2f242b1f84b15407237b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerPrefab: {fileID: 3960327423798790686}
+  enemyPrefab: {fileID: 1357643071666253963, guid: 72373724e8b497e41af4405d1bc4c2ef, type: 3}
+  seedPrefab: {fileID: 6523877536838061785, guid: 05c43238611136a4e8b19cde7c9747f9, type: 3}
+  enemySprites:
+  - {fileID: 21300000, guid: 4a516a10d4219aa4b8bf85be0a1574e1, type: 3}
+  - {fileID: 21300000, guid: 7aae04db0b1f5a44883b75e333e7c41d, type: 3}
+  spawnedEnemy: []
+  spawnedSeeds: []
+  secondsBetweenSpawn: 2
+  elapsedTime: 0
 --- !u!1 &1451942426
 GameObject:
   m_ObjectHideFlags: 0
@@ -312,6 +335,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2224c3a2cc06e57469ac11cfd8427d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!212 &3960327423798790686 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 7802797233833449524, guid: 6ea6c1b711b0eb34e85716f6b662145d, type: 3}
+  m_PrefabInstance: {fileID: 5602805995279474979}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5602805995279474979
 PrefabInstance:
   m_ObjectHideFlags: 0

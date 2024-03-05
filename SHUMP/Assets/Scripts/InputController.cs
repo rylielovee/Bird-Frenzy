@@ -18,7 +18,4 @@ public class InputController : MonoBehaviour
 
         movementController.Direction = inputDirection;
     }
-
-
-
 }
