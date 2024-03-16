@@ -1,20 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
 using UnityEngine.Serialization;
 
 public class MovementController : MonoBehaviour
 {
+    [SerializeField]
     Vector3 objectPosition = Vector3.zero;   // Vector3 with all zeros (0, 0, 0)
 
+    [SerializeField]
     Vector3 direction = Vector3.zero;
 
+    [SerializeField]
     Vector3 velocity = Vector3.zero;     // velocity doesn't make sense outside of update but to debug
                                          // put it here to see in inspector
     [SerializeField]
     float speed;   // whatever speed we put in inspector will override this
-
 
 
     public Vector3 Direction

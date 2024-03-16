@@ -1,35 +1,43 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Linq;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Device;
+using UnityEngine.InputSystem;
 using static UnityEngine.GraphicsBuffer;
+using UnityEngine.UI;
+
 
 public class SpawnManager : Singleton<SpawnManager>
 {
-    public enum EnemyTypes
-    {
-        PurpleBird,
-        RedBird
-    }
-
     protected SpawnManager() { }
+    
+    public SpriteRenderer playerPrefab;
 
     [SerializeField]
-    SpriteRenderer playerPrefab;
+    SpriteRenderer yellowSeedPrefab;
 
     [SerializeField]
-    SpriteRenderer enemyPrefab;
+    SpriteRenderer purpleBirdPrefab;
 
     [SerializeField]
-    SpriteRenderer seedPrefab;
+    SpriteRenderer redBirdPrefab;
 
     [SerializeField]
-    List<Sprite> enemySprites;
+    SpriteRenderer blueSeedPrefab;
 
+    [SerializeField]
+    SpriteRenderer poopPrefab;
 
     public List<SpriteRenderer> spawnedEnemy;
-    public List<SpriteRenderer> spawnedSeeds;
+
+    public List<SpriteRenderer> spawnedBlueSeedsAndPoop;
+
+    public List<SpriteRenderer> spawnedYellowSeeds;
+
 
     [SerializeField]
     float secondsBetweenSpawn;
@@ -37,91 +45,90 @@ public class SpawnManager : Singleton<SpawnManager>
     [SerializeField]
     float elapsedTime = 0.0f;
 
+    [SerializeField]
+    float halfElapsedTime = 1.5f;
+
+
 
     // Start is called before the first frame update
     void Start()
     {
-
     }
 
     // Update is called once per frame
     void Update()
     {
+        float screenH = Camera.main.orthographicSize * 2f;
+        float screenW = screenH * Camera.main.aspect;
+
         elapsedTime += Time.deltaTime;
+        halfElapsedTime += Time.deltaTime;
+
+        if (halfElapsedTime > secondsBetweenSpawn)
+        {
+            SpawnPurpleBird();
+            halfElapsedTime = 1.0f;
+        }
 
         if (elapsedTime > secondsBetweenSpawn)
         {
-            SpawnEnemy();
+            SpawnRedBird();
             elapsedTime = 0.0f;
         }
 
-        for (int i = 0; i < spawnedEnemy.Count; i++)
+        if (Keyboard.current.jKey.wasPressedThisFrame == true)
         {
-            if (spawnedEnemy[i] != null)
-            {
-                CircleCollisionCheck(playerPrefab, spawnedEnemy[i]);
-            }
-            if (spawnedSeeds[i] != null)
-            {
-                CircleCollisionCheck(playerPrefab, spawnedSeeds[i]);
-            }
+            ShootSeed();
         }
     }
 
 
-    public void SpawnEnemy()
+    // Spawn Purple Bird
+    public void SpawnPurpleBird()
     {
-        SpriteRenderer newEnemy = Instantiate(enemyPrefab);
-        SpriteRenderer newSeed = Instantiate(seedPrefab);
-
-        // change sprite
-        newEnemy.sprite = enemySprites[(int)PickRandomEnemy()];  // need to cast as a int because it is technically stored as an int
+        SpriteRenderer newEnemy = Instantiate(purpleBirdPrefab);
+        SpriteRenderer newSeed = Instantiate(blueSeedPrefab);
 
         float screenH = Camera.main.orthographicSize * 2f;
         float screenW = screenH * Camera.main.aspect;
 
         float x = screenW - 8;
-        float y = Random.Range(-screenH + 5.5f, screenH - 5.5f);
+        float y = UnityEngine.Random.Range(-screenH + 6.5f, screenH - 10.0f);
 
         newEnemy.transform.position = new Vector3(x, y, 0);
         newSeed.transform.position = new Vector3(x-1.5f, y, 0);
 
         spawnedEnemy.Add(newEnemy);
-
-        spawnedSeeds.Add(newSeed);
+        spawnedBlueSeedsAndPoop.Add(newSeed);
     }
 
 
-    EnemyTypes PickRandomEnemy()
+    // Spawn Red Bird
+    public void SpawnRedBird()
     {
-        float randValue = Random.Range(0f, 1f);
+        SpriteRenderer newEnemy = Instantiate(redBirdPrefab);
+        SpriteRenderer newPoop = Instantiate(poopPrefab);
 
-        if (randValue < .5f)
-        {
-            return EnemyTypes.PurpleBird;
-        }
-        else
-        {
-            return EnemyTypes.RedBird;
-        }
+        float screenH = Camera.main.orthographicSize * 2f;
+        float screenW = screenH * Camera.main.aspect;
 
+        float x = screenW - 8;
+        float y = UnityEngine.Random.Range(-screenH + 10.0f, screenH - 5.5f);
+
+        newEnemy.transform.position = new Vector3(x, y, 0);
+        newPoop.transform.position = new Vector3(x - 0.5f, y - 1.0f, 0);
+
+        spawnedEnemy.Add(newEnemy);
+        spawnedBlueSeedsAndPoop.Add(newPoop);
     }
 
 
-    void CircleCollisionCheck(SpriteRenderer spriteA, SpriteRenderer spriteB)
+    // spawn player's seeds
+    void ShootSeed()
     {
-        float combinedRadius = spriteA.bounds.extents.y + spriteB.bounds.extents.y;
+        SpriteRenderer newSeed = Instantiate(yellowSeedPrefab);
+        newSeed.transform.position = new Vector3(playerPrefab.transform.position.x + 1.5f, playerPrefab.transform.position.y, 0);
 
-        float xNum = (spriteA.transform.position.x) - (spriteB.transform.position.x);
-        xNum = Mathf.Pow(xNum, 2);
-
-        float yNum = (spriteA.transform.position.y) - (spriteB.transform.position.y);
-        yNum = Mathf.Pow(yNum, 2);
-
-        if (Mathf.Sqrt(xNum + yNum) <= combinedRadius)
-        {
-            Destroy(spriteB);
-        }
+        spawnedYellowSeeds.Add(newSeed);
     }
-
 }

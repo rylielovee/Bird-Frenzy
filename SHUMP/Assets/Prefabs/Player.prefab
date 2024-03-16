@@ -98,7 +98,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8b373b9a7852a7429bfe3eb2f977f1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectPosition: {x: 0, y: 0, z: 0}
+  direction: {x: 0, y: 0, z: 0}
+  velocity: {x: 0, y: 0, z: 0}
   speed: 5
+  yellowSeedPrefab: {fileID: 3675116950724122280, guid: a96c6400d644dd84a842d0f23af4820d, type: 3}
+  playerPrefab: {fileID: 7802797233833449524}
 --- !u!114 &4845474896046587733
 MonoBehaviour:
   m_ObjectHideFlags: 0
