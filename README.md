@@ -11,9 +11,9 @@
 
 -   Camera Orientation: side view
 -   Camera Movement: stationary
--   Player Health: lives
--   End Condition: loss are your lives or kill all the enemies to get to next level
--   Scoring: every kill you get 100 points
+-   Player Health: health bar
+-   End Condition: no health left or kill all the enemies (seen through enemy health bar)
+-   Scoring: hitting and enemy is 25 points, hitting an enemy item is 10 points
 
 ### Game Description
 
@@ -26,22 +26,19 @@ You are a cute little bird who has severely made all the other birds angry by st
     -   Down: S
     -   Left: A
     -   Right: D
--   Fire: space bar
+-   Fire: J
 
 ## You Additions
 
-I will do all the art for this project.
+I will do all the art for this project (player, enemies, seeds, background).
 
 ## Sources
 
--   _List all project sources here –models, textures, sound clips, assets, etc._
--   _If an asset is from the Unity store, include a link to the page and the author’s name_
+ME
 
 ## Known Issues
 
-_List any errors, lack of error checking, or specific information that I need to know to run your program_
+Game breaks when too many bullets are shot by player. 
 
 ### Requirements not completed
-
-_If you did not complete a project requirement, notate that here_
 
