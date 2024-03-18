@@ -17,11 +17,11 @@
 
 ### Game Description
 
-You are a cute little bird who has severely made all the other birds angry by stealing some of their food (bird seeds). Defend yourself from the wave of bird attacks!
+You are a cute little bird who has severely made all the other birds angry by stealing their food. Defend yourself from the wave of bird attacks!
 
 ### Controls
 
--   Movement
+-   Movement:
     -   Up: W
     -   Down: S
     -   Left: A
@@ -34,11 +34,9 @@ I will do all the art for this project (player, enemies, seeds, background).
 
 ## Sources
 
-ME
 
 ## Known Issues
 
-Game breaks when too many bullets are shot by player. 
 
 ### Requirements not completed
 
