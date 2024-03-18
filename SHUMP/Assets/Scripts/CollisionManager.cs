@@ -30,15 +30,15 @@ public class CollisionManager : MonoBehaviour
         if (playerHealth <= 0)
         {
             GameOverLabel.text = "GAME OVER";
-            //Application.Quit();
-            UnityEditor.EditorApplication.isPlaying = false;
+            Application.Quit();
+            //UnityEditor.EditorApplication.isPlaying = false;
         }
 
         if (enemyHealth <= 0)
         {
             GameOverLabel.text = "YOU WIN!";
-            //Application.Quit();
-            UnityEditor.EditorApplication.isPlaying = false;
+            Application.Quit();
+            //UnityEditor.EditorApplication.isPlaying = false;
         }
 
 
@@ -51,6 +51,13 @@ public class CollisionManager : MonoBehaviour
                 {
                     for (int k = spawnManager.spawnedYellowSeeds.Count - 1; k >= 0; k--)
                     {
+                        // To bypass the error
+                        if (k >= spawnManager.spawnedYellowSeeds.Count || i >= spawnManager.spawnedEnemy.Count)
+                        {
+                            //Debug.LogError("Out of range");
+                            continue;
+                        }
+
                         if (CircleCollisionCheck(spawnManager.spawnedYellowSeeds[k], spawnManager.spawnedEnemy[i]) == true)
                         {
                             playerScore += 25;
@@ -78,6 +85,13 @@ public class CollisionManager : MonoBehaviour
                 {
                     for (int k = spawnManager.spawnedYellowSeeds.Count - 1; k >= 0; k--)
                     {
+                        // To bypass the error
+                        if (k >= spawnManager.spawnedYellowSeeds.Count || i >= spawnManager.spawnedBlueSeedsAndPoop.Count)
+                        {
+                            //Debug.LogError("Out of range");
+                            continue;
+                        }
+
                         if (CircleCollisionCheck(spawnManager.spawnedYellowSeeds[k], spawnManager.spawnedBlueSeedsAndPoop[i]) == true)
                         {
                             playerScore += 10;
