@@ -1,26 +1,18 @@
 # Academic Project: Bird Frenzy
 
-### Student Info
-
--   Name: Rylie Love
-
-### Game Description
-
 You are a cute little bird who has severely made all the other birds angry by stealing their food. Defend yourself from the wave of bird attacks!
-
-### Controls
-
--   Movement:
-    -   Up: W
-    -   Down: S
-    -   Left: A
-    -   Right: D
--   Fire: J
 
 ## Game Design
 
--   Camera Orientation: side view
--   Camera Movement: stationary
--   Player Health: health bar
--   End Condition: no health left or kill all the enemies (seen through enemy health bar)
--   Scoring: hitting and enemy is 25 points, hitting an enemy item is 10 points
+- This is a 2D shoot ‘em-up game made in Unity in which players must defend themselves from waves of enemy birds by shooting seeds.
+- The purpose of this project was to demonstrate an understanding of time, vectors, vector-based movement, and develop a custom collision detection method.
+- This was coded without the use of Unity’s built in collision methods.
+- All art was created by me. 
+
+## Controls
+
+- Movement: WASD
+- Fire: J
+
+
+
