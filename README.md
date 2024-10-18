@@ -1,7 +1,5 @@
 # Project: Bird Frenzy
 
-[Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Here-Cheatsheet)
-
 ### Student Info
 
 -   Name: Rylie Love
@@ -27,16 +25,4 @@ You are a cute little bird who has severely made all the other birds angry by st
     -   Left: A
     -   Right: D
 -   Fire: J
-
-## You Additions
-
-I will do all the art for this project (player, enemies, seeds, background).
-
-## Sources
-
-
-## Known Issues
-
-
-### Requirements not completed
 
